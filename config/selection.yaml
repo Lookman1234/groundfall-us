@@ -1,14 +1,14 @@
 # GroundFall-US selection and grouping settings.
 # Plain-language note: this file holds the decisions about WHICH accidents count as
-# ground failures and HOW mines are grouped. Every item marked [VERIFY] is a decision
-# Lukman confirms before release. Changing a value here and re-running the pipeline
+# ground failures and HOW mines are grouped. Decisions confirmed by the authors
+# on 2026-10-11 and 2026-10-13 for v1.0. Changing a value here and re-running the pipeline
 # rebuilds every output.
 
 years: {first: 2000, last: 2026}
 partial_year: 2026            # flagged in outputs as incomplete
 
 # Ground failure = MSHA CLASSIFICATION (circumstance most directly contributing).
-# Matched case-insensitively against the CLASSIFICATION text label. [VERIFY]
+# Matched case-insensitively against the CLASSIFICATION text label.
 ground_failure_classification_patterns:
   - "FALL OF FACE"            # Fall of face, rib, pillar, side, highwall
   - "FALL OF ROOF"            # Fall of roof or back
@@ -38,7 +38,7 @@ canvass_groups:
 # Rates: incidents per this many hours worked (MSHA convention).
 rate_base_hours: 200000
 # Contractor accidents (CONTRACTOR_ID present) are kept in the incident table but
-# excluded from rate numerators, because MinesProdYearly hours are mine-operator hours. [VERIFY]
+# excluded from rate numerators, because MinesProdYearly hours are mine-operator hours.
 exclude_contractors_from_rates: true
 
 # Coding-layer scope: surface metal/nonmetal ground failures.

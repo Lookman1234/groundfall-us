@@ -3,7 +3,7 @@ message: "If you use this dataset, please cite it as below."
 type: dataset
 title: "GroundFall-US: open dataset of ground-failure incidents at U.S. mines, 2000 to 2026"
 version: "1.0.0"
-date-released: "[YYYY-MM-DD, set on release]"
+date-released: "2026-10-13"
 authors:
   - family-names: "Alabede"
     given-names: "Lukman"
@@ -13,8 +13,7 @@ authors:
     given-names: "Kayode"
     affiliation: "Colorado School of Mines, Golden, Colorado, USA"
 license: CC-BY-4.0
-repository-code: "https://github.com/[username]/groundfall-us"
-doi: "[10.5281/zenodo.pending]"
+repository-code: "https://github.com/Lookman1234/groundfall-us"
 keywords:
   - mine safety
   - ground control

@@ -2,8 +2,8 @@
 """Step 7: figures and headline numbers.
 
 Plain-language note: draws the dataset's figures into paper/figures/ and writes the
-headline numbers into paper/stats.json. Figures carry a DRAFT stamp until you have
-verified the data; run with --final after verification to remove it.
+headline numbers into paper/stats.json. Without --final, figures carry a review
+stamp; release figures are drawn with --final.
 
 Figures:
   fig1_injury_rate_by_year.png    ground-failure injury rate per 200,000 hours, by
@@ -42,7 +42,7 @@ def style(ax):
 
 def stamp(fig, final):
     if not final:
-        fig.text(0.99, 0.01, "DRAFT - not yet verified", ha="right", va="bottom",
+        fig.text(0.99, 0.01, "DRAFT, not yet verified", ha="right", va="bottom",
                  fontsize=9, color="#b42318", weight="bold")
 
 
@@ -101,7 +101,7 @@ def main():
     fig, ax = plt.subplots(figsize=(8, 4.2), facecolor=SURF)
     style(ax)
     ax.grid(False)
-    ax.barh([names[k] for k in order.index], order.values, color="#2a78d6", height=0.6)
+    ax.barh(list(map(names.get, order.index)), order.values, color="#2a78d6", height=0.6)
     for i, v in enumerate(order.values):
         ax.text(v + 0.6, i, str(v), va="center", fontsize=9, color=INK)
     ax.set_xticks([])
@@ -109,7 +109,7 @@ def main():
     fig.suptitle(f"Failure modes of surface metal/nonmetal ground failures, {y0}-2026 (n = {len(m)})",
                  x=0.01, ha="left", fontsize=11.5, color=INK, weight="bold")
     fig.text(0.01, 0.01, f"Rule-based labels from narratives, rules v{m['rules_version'].iloc[0]}; "
-             "not yet validated against hand labels.", fontsize=8.5, color=INK2)
+             "reviewed by the rules author; not yet scored against blind hand labels.", fontsize=8.5, color=INK2)
     stamp(fig, a.final)
     fig.tight_layout(rect=(0, 0.05, 1, 0.94))
     fig.savefig(out / "fig2_surface_mnm_failure_modes.png", dpi=200, facecolor=SURF)

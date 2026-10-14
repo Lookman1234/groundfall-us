@@ -44,7 +44,7 @@ def main():
     if c["ground_failure_unmatched_mine_ids"]:
         w(f"   unmatched mine IDs (first 20): {', '.join(c['ground_failure_unmatched_mine_ids'][:20])}")
 
-    w("\n3. Selection rule check: every MSHA CLASSIFICATION label, 2000-2026 [VERIFY]")
+    w("\n3. Selection rule check: every MSHA CLASSIFICATION label, 2000-2026 (* = selected)")
     w(f"   labels selected as ground failure: {c['ground_failure_labels_matched']}")
     for lab, k in sorted(c["classification_labels"].items(), key=lambda x: -x[1]):
         mark = "*" if lab in c["ground_failure_labels_matched"] else " "

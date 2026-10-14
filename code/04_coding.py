@@ -38,17 +38,17 @@ def first_hit(text, rule):
 def code_row(narr, activity, modes, order, triggers):
     narr = narr if isinstance(narr, str) else ""
     mode, mode_hit = "unspecified", ""
-    for name in order:
-        h = first_hit(narr, modes[name])
+    for mode_name in order:
+        h = first_hit(narr, modes[mode_name])
         if h:
-            mode, mode_hit = name, h
+            mode, mode_hit = mode_name, h
             break
     out = {"failure_mode": mode, "failure_mode_evidence": mode_hit}
     for name, rule in triggers.items():
         h = first_hit(narr, rule)
         if not h and rule["use_activity_field"] and isinstance(activity, str) \
                 and re.search(r"scal", activity, re.I):
-            h = f"[ACTIVITY] {activity}"
+            h = f"ACTIVITY: {activity}"
         out[f"trigger_{name}"] = bool(h)
         out[f"trigger_{name}_evidence"] = h or ""
     return out

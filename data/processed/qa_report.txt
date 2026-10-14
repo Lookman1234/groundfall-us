@@ -18,7 +18,7 @@ GroundFall-US QA report
    contractor records                719  2.4%
    GF records (non-contractor) falling in a cell with zero hours: 2
 
-3. Selection rule check: every MSHA CLASSIFICATION label, 2000-2026 [VERIFY]
+3. Selection rule check: every MSHA CLASSIFICATION label, 2000-2026 (* = selected)
    labels selected as ground failure: ['FALL OF FACE/RIB/PILLAR/SIDE/HIGHWALL', 'FALL OF ROOF OR BACK']
       79,090  HANDLING OF MATERIALS
       46,930  SLIP OR FALL OF PERSON

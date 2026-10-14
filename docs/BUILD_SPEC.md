@@ -17,7 +17,7 @@ UNIT:           Incident table: one row per MSHA accident record (DOCUMENT_NO).
                 Rate table: one row per group (mine type x commodity x state x year).
                 Coding table: one row per surface metal/nonmetal ground-failure record.
 SELECTION:      Ground failure = CLASSIFICATION in {fall of roof or back; fall of
-                face, rib, pillar, side, highwall} [VERIFY exact labels against data],
+                face, rib, pillar, side, highwall} (labels checked against data 2026-10-13),
                 CAL_YR 2000 to 2026 (2026 partial, flagged).
 MEASURES:       Incidents, fatalities (DEGREE_INJURY_CD 01), lost-time cases (03, 04),
                 hours worked (mine-operator employees, MinesProdYearly), rate per

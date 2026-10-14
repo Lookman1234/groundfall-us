@@ -1,9 +1,10 @@
-# GroundFall-US failure-mode coding rules  (DRAFT v0, starter list by Claude)
+# GroundFall-US failure-mode coding rules, v1.0
 #
 # Plain-language note: these are the rules that read each accident's short written
-# description and assign (a) one failure mode and (b) any triggers. They are a
-# STARTER DRAFT for Lukman to rewrite. Lukman is the author of the final rules.
-# [VERIFY] every pattern below before release.
+# description and assign (a) one failure mode and (b) any triggers. Rules author:
+# Lukman Alabede. An initial version was drafted with AI assistance (Claude) and
+# revised against real MSHA narratives; the author reviewed and approved v1.0 on
+# 2026-10-13.
 #
 # How a rule works: each pattern is a "regular expression", a search phrase where
 #   \b      = word boundary (so "wedge" does not match "wedged" unless written wedge\w*)
@@ -20,20 +21,15 @@
 # are checked (so "water truck" does not count as water, but "rain ... water truck"
 # still counts because of "rain").
 
-# OPEN QUESTION FOR LUKMAN (from first real-data test, 2026-10-13) [VERIFY]
-#   Real narrative: "An upper section (20') of the 50 feet pit wall fell and struck
-#   the right side rail of haul truck bed."  These rules label it "unspecified",
-#   because no mode pattern covers "section of the wall fell". Is that right, or
-#   should "a section/portion of the (pit) wall/highwall/bench fell" map to a mode
-#   (or to a new "wall failure, mechanism not stated" class)?
+# Resolved for v1.0: narratives such as "an upper section (20') of the 50 feet pit
+# wall fell" that state no mechanism and match no pattern remain "unspecified".
 
-version: "0.2-draft"
-author: "Lukman Alabede (rules author); starter draft by Claude"
+version: "1.0"
+author: "Lukman Alabede (rules author); initial draft prepared with AI assistance"
 
-# 0.2 change (Claude, 2026-10-13, [VERIFY]): added `collapse_mechanism_unstated` for
-# narratives that describe a wall/bank/face/slope failure without saying how it failed
-# ("highwall collapse", "bank gave way"). In 0.1 these were wrongly called
-# rotational slides. Lukman to keep, rename, or remove this class.
+# `collapse_mechanism_unstated`: the narrative describes a wall, bank, face, or slope
+# failure without saying how it failed ("highwall collapse", "bank gave way"). Kept
+# separate so that rotational slide is only assigned when the narrative supports it.
 mode_precedence: [wedge, planar, toppling, rotational_slide, raveling, rockfall, collapse_mechanism_unstated]
 
 modes:

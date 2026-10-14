@@ -1,0 +1,34 @@
+{
+  "title": "GroundFall-US: open dataset of ground-failure incidents at U.S. mines, 2000 to 2026",
+  "upload_type": "dataset",
+  "version": "1.0.0",
+  "description": "GroundFall-US joins the U.S. Mine Safety and Health Administration (MSHA) Accidents, Mines, and yearly Employment/Production files (2026-10-09 edition) into one documented dataset of ground-failure incidents at U.S. mines, 2000 to 2026: an incident table, injury rates per 200,000 hours by sector, mine type, commodity, and state, and a rule-based failure-mode layer (rockfall, raveling, planar, wedge, toppling, rotational slide; blasting, water, and scaling triggers) for surface metal and nonmetal narratives. Wall, bank, and slope stability is regulated under 30 CFR 56.3130. Code, codebook, limitations, and source fingerprints are included.",
+  "creators": [
+    {
+      "name": "Alabede, Lukman",
+      "orcid": "0009-0008-7769-7455",
+      "affiliation": "Independent Researcher, Safford, Arizona, USA"
+    },
+    {
+      "name": "Komolafe, Kayode",
+      "affiliation": "Colorado School of Mines, Golden, Colorado, USA"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "mine safety",
+    "ground control",
+    "slope stability",
+    "highwall",
+    "rockfall",
+    "MSHA",
+    "30 CFR 56.3130"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Lookman1234/groundfall-us",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

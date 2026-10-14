@@ -1,10 +1,8 @@
 # GroundFall-US
 
-**Status: DRAFT v0.9, not yet verified by the authors. Do not cite yet.** Target release: v1.0 on Zenodo, November 2026.
+**Status: v1.0, released 2026-10-13.** Built from the MSHA 2026-10-09 data refresh.
 
 GroundFall-US is an open dataset of ground-failure accidents at U.S. mines from 2000 to 2026. It brings together three public files from the Mine Safety and Health Administration (MSHA): accident reports, the list of mines, and hours worked each year. The result is one documented set of tables. It shows how many falls of roof, rib, face, highwall, and slope happened, at which kinds of mines and in which states, and the rate per hour worked. For surface metal and nonmetal mines, it also labels how the ground failed (rockfall, raveling, planar, wedge, toppling, rotational slide) and what set it off (blasting, water, scaling), using rules written by a geotechnical engineer. Wall, bank, and slope stability at these mines is regulated under 30 CFR 56.3130. The dataset is meant as a national reference for MSHA, NIOSH, and mine operators, and as an evidence base for early warning.
-
-[VERIFY: author rewrites this paragraph in his own words before release]
 
 Headline numbers: see [docs/SUMMARY.md](docs/SUMMARY.md), which is generated from the data.
 
@@ -31,11 +29,11 @@ python code/03_qa.py               # writes data/processed/qa_report.txt
 python code/04_coding.py           # applies the failure-mode rules
 python code/04b_candidates.py      # lists likely ground failures MSHA filed under other categories
 python code/05_validation_sample.py
-python code/07_figures.py          # add --final after verification
-python code/08_summary.py
+python code/07_figures.py --final
+python code/08_summary.py --final
 ```
 
-MSHA replaces its files every Friday. To reproduce v1.0 exactly, use the files whose SHA-256 fingerprints are in `data/raw/PROVENANCE.txt`; they are archived with the Zenodo release.
+MSHA replaces its files every Friday. To reproduce v1.0 exactly, skip `01_fetch.py` and use the three MSHA files already in `data/raw/` (the 2026-10-09 edition, redistributed here as public-domain U.S. government data). Their SHA-256 fingerprints are in `data/raw/PROVENANCE.txt`.
 
 ## Sources
 
@@ -52,6 +50,6 @@ Code: MIT. Data and documentation: CC BY 4.0. Please credit GroundFall-US and MS
 ## Authors
 
 Lukman Alabede (ORCID 0009-0008-7769-7455), Independent Researcher, Safford, Arizona: concept, failure-mode rules, validation.
-Kayode Komolafe, Colorado School of Mines, Golden, Colorado: [VERIFY role].
+Kayode Komolafe, Colorado School of Mines, Golden, Colorado.
 
 Code for fetching and joining the data was written with AI assistance (Claude, Anthropic). The authors made every analytic decision and verified the outputs. See [CITATION.cff](CITATION.cff).

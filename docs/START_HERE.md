@@ -26,8 +26,8 @@ All sources are free and public from the Mine Safety and Health Administration (
 
 ## What you will have at the end
 
-- [ ] **A public project page** on GitHub with all the code, so anyone can rebuild the dataset: [link once live]
-- [ ] **A permanent citation number (DOI)** from Zenodo for GroundFall-US v1.0: [DOI once minted]
+- [ ] **A public project page** on GitHub with all the code, so anyone can rebuild the dataset: https://github.com/Lookman1234/groundfall-us
+- [ ] **A permanent citation number (DOI)** from Zenodo for GroundFall-US v1.0: minted when the v1.0 GitHub release is archived by Zenodo
 - [ ] **The dataset itself**: one table of ground-failure accidents, one table of rates by mine type, commodity, and state, and the failure-mode labels for surface metal and nonmetal accidents
 - [ ] **A codebook and coding manual** that explain every column and every labeling rule, authored by you
 
@@ -58,4 +58,4 @@ Everything else is built for you.
 5. **Failure-mode labels.** Your rules applied to surface metal and nonmetal narratives, then checked against your hand labels.
 6. **Ready for your check.** You verify, then we publish v1.0 to GitHub and Zenodo.
 
-*You are here: steps 1 to 4 done on real data (2026-10-13). Step 5 waits on your rules review and hand labels.*
+*You are here: v1.0 approved by the authors on 2026-10-13 and released on GitHub; Zenodo DOI next.*
