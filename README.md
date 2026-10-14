@@ -2,7 +2,7 @@
 
 **Status: v1.0, released 2026-10-13.** Built from the MSHA 2026-10-09 data refresh.
 
-GroundFall-US is an open dataset of ground-failure accidents at U.S. mines from 2000 to 2026. It brings together three public files from the Mine Safety and Health Administration (MSHA): accident reports, the list of mines, and hours worked each year. The result is one documented set of tables. It shows how many falls of roof, rib, face, highwall, and slope happened, at which kinds of mines and in which states, and the rate per hour worked. For surface metal and nonmetal mines, it also labels how the ground failed (rockfall, raveling, planar, wedge, toppling, rotational slide) and what set it off (blasting, water, scaling), using rules written by a geotechnical engineer. Wall, bank, and slope stability at these mines is regulated under 30 CFR 56.3130. The dataset is meant as a national reference for MSHA, NIOSH, and mine operators, and as an evidence base for early warning.
+GroundFall-US is an open dataset of ground-failure accidents at U.S. mines from 2000 to 2026. It brings together three public files from the Mine Safety and Health Administration (MSHA): accident reports, the list of mines, and hours worked each year. The result is one documented set of tables. It shows how many falls of roof, rib, face, highwall, and slope happened, at which kinds of mines and in which states, and the rate per hour worked. For surface metal and nonmetal mines, it also labels how the ground failed (rockfall, raveling, planar, wedge, toppling, rotational slide) and what set it off (blasting, water, scaling), using failure-mode rules written by the first author. Wall, bank, and slope stability at these mines is regulated under 30 CFR 56.3130. The dataset is meant as a national reference for MSHA, NIOSH, and mine operators, and as an evidence base for early warning.
 
 Headline numbers: see [docs/SUMMARY.md](docs/SUMMARY.md), which is generated from the data.
 
@@ -50,6 +50,6 @@ Code: MIT. Data and documentation: CC BY 4.0. Please credit GroundFall-US and MS
 ## Authors
 
 Lukman Alabede (ORCID 0009-0008-7769-7455), Independent Researcher, Safford, Arizona: concept, failure-mode rules, validation.
-Kayode Komolafe, Colorado School of Mines, Golden, Colorado.
+Kayode Komolafe (ORCID 0000-0001-8279-821X), Mining Engineering Department, Colorado School of Mines, Golden, Colorado.
 
 Code for fetching and joining the data was written with AI assistance (Claude, Anthropic). The authors made every analytic decision and verified the outputs. See [CITATION.cff](CITATION.cff).

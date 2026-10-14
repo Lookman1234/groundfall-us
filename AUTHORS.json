@@ -21,9 +21,11 @@
       "name": "Kayode Komolafe",
       "family": "Komolafe",
       "given": "Kayode",
-      "affiliation": "Colorado School of Mines, Golden, Colorado, USA",
+      "affiliation": "Mining Engineering Department, Colorado School of Mines, Golden, Colorado, USA",
       "roles": [],
-      "corresponding": false
+      "corresponding": false,
+      "orcid": "0000-0001-8279-821X",
+      "email": "komolafe@mines.edu"
     }
   ],
   "collaborators": []

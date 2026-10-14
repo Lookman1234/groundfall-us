@@ -3,3 +3,8 @@
 __pycache__/
 data/raw/*.txt
 fx/
+paper/*.aux
+paper/*.log
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.out

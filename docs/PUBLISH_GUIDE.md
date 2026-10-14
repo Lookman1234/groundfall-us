@@ -36,4 +36,4 @@
 ## Optional, before Step 2
 
 - **Repository visibility.** The repository is Public, which Zenodo needs. Leave it Public.
-- **Kayode's ORCID.** If you want his ORCID on the Zenodo record, send it to Claude before Step 2 so it goes into `.zenodo.json`.
+- **Kayode's ORCID** is already in `.zenodo.json`, so it appears on the Zenodo record automatically.

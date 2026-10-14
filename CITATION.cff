@@ -11,7 +11,8 @@ authors:
     affiliation: "Independent Researcher, Safford, Arizona, USA"
   - family-names: "Komolafe"
     given-names: "Kayode"
-    affiliation: "Colorado School of Mines, Golden, Colorado, USA"
+    orcid: "https://orcid.org/0000-0001-8279-821X"
+    affiliation: "Mining Engineering Department, Colorado School of Mines, Golden, Colorado, USA"
 license: CC-BY-4.0
 repository-code: "https://github.com/Lookman1234/groundfall-us"
 keywords:
