@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "GroundFall-US: open dataset of ground-failure incidents at U.S. mines, 2000 to 2026"
+version: "1.0.0"
+date-released: "[YYYY-MM-DD, set on release]"
+authors:
+  - family-names: "Alabede"
+    given-names: "Lukman"
+    orcid: "https://orcid.org/0009-0008-7769-7455"
+    affiliation: "Independent Researcher, Safford, Arizona, USA"
+  - family-names: "Komolafe"
+    given-names: "Kayode"
+    affiliation: "Colorado School of Mines, Golden, Colorado, USA"
+license: CC-BY-4.0
+repository-code: "https://github.com/[username]/groundfall-us"
+doi: "[10.5281/zenodo.pending]"
+keywords:
+  - mine safety
+  - ground control
+  - slope stability
+  - highwall
+  - rockfall
+  - MSHA
+  - 30 CFR 56.3130

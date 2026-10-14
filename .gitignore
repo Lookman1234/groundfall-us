@@ -1,0 +1,6 @@
+.env
+*.token
+__pycache__/
+data/raw/*.txt
+fx/
+data/raw/*.zip

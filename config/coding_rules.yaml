@@ -1,0 +1,115 @@
+# GroundFall-US failure-mode coding rules  (DRAFT v0, starter list by Claude)
+#
+# Plain-language note: these are the rules that read each accident's short written
+# description and assign (a) one failure mode and (b) any triggers. They are a
+# STARTER DRAFT for Lukman to rewrite. Lukman is the author of the final rules.
+# [VERIFY] every pattern below before release.
+#
+# How a rule works: each pattern is a "regular expression", a search phrase where
+#   \b      = word boundary (so "wedge" does not match "wedged" unless written wedge\w*)
+#   \w*     = any word ending (toppl\w* matches topple, toppled, toppling)
+#   (a|b)   = a or b
+#   .{0,40} = up to 40 characters of anything in between
+# Matching ignores upper/lower case. MSHA narratives are at most 384 characters
+# and use abbreviations (HW = highwall, EE = employee).
+#
+# Failure mode: the FIRST mode in `mode_precedence` whose patterns match wins.
+# More specific mechanisms are listed first. If none match: "unspecified".
+# Triggers: every trigger whose patterns match is recorded (zero, one, or more).
+# `exclude` phrases are blanked out of the narrative before that category's patterns
+# are checked (so "water truck" does not count as water, but "rain ... water truck"
+# still counts because of "rain").
+
+# OPEN QUESTION FOR LUKMAN (from first real-data test, 2026-10-13) [VERIFY]
+#   Real narrative: "An upper section (20') of the 50 feet pit wall fell and struck
+#   the right side rail of haul truck bed."  These rules label it "unspecified",
+#   because no mode pattern covers "section of the wall fell". Is that right, or
+#   should "a section/portion of the (pit) wall/highwall/bench fell" map to a mode
+#   (or to a new "wall failure, mechanism not stated" class)?
+
+version: "0.2-draft"
+author: "Lukman Alabede (rules author); starter draft by Claude"
+
+# 0.2 change (Claude, 2026-10-13, [VERIFY]): added `collapse_mechanism_unstated` for
+# narratives that describe a wall/bank/face/slope failure without saying how it failed
+# ("highwall collapse", "bank gave way"). In 0.1 these were wrongly called
+# rotational slides. Lukman to keep, rename, or remove this class.
+mode_precedence: [wedge, planar, toppling, rotational_slide, raveling, rockfall, collapse_mechanism_unstated]
+
+modes:
+  wedge:
+    patterns:
+      - '\bwedge\w*\b'
+      - 'intersecting (joints?|fractures?|planes?)'
+    exclude:
+      - 'wedged (between|under|in)'        # body part or equipment wedged
+  planar:
+    patterns:
+      - '\bplan(e|ar) failure'
+      - 'slid (out )?(along|on|down) (a |the )?(joint|bedding|seam|fault|plane|parting|clay layer)'
+      - '\b(slab|block|sheet) .{0,30}\bslid'
+      - 'bedding plane'
+  toppling:
+    patterns:
+      - '\btoppl\w*'
+      - '\b(column|slab|block) of (rock|material) .{0,30}\b(tipped|leaned|rotated|fell over)'
+      - '\btipped (over|out) (from|off) (the )?(highwall|face|wall|bench)'
+  rotational_slide:
+    patterns:
+      - '\b(slump\w*|rotational|circular failure)\b'
+      - '\btension cracks?\b'
+      - '\b(toe|floor) (heave|heaved|bulg\w*|buckl\w*)'
+      - '\bbuckle\w* upward'
+      - '\b(land|mud)slide\b'
+  raveling:
+    patterns:
+      - '\bravel\w*'
+      - '\bslough\w*'
+      - '\b(small|loose) (rocks?|material|pebbles?|stones?) .{0,30}\b(rolled|came down|trickled|slid|fell)'
+      - '\bloose material\b'
+  rockfall:
+    patterns:
+      - '\b(rock|boulder|stone|piece of (rock|slate|alluvium|material)|chunk|slab)s? .{0,30}\b(fell|falling|came down|came loose|rolled|rolling|dislodged?|broke loose)'
+      - '\b(rolled|fell|falling|came) (off|from|down) (the )?(high ?wall|hw|pit wall|wall|face|bench|bank)'
+      - '\bfell (from|off) (the )?(highwall|hw|face|wall|bench|bank|rib|back|roof)\b'
+      - '\b(falling|fallen) (rock|material|debris)'
+      - '\brock ?fall\b'
+      - '\b(struck|hit)\b.{0,20}\b(by|w/|with) (a )?(rock|boulder|stone)s?\b.{0,25}\b(from|off) (the )?(high ?wall|hw|wall|face|bench)'
+      - '\brocks? (came|broke) (off|from|loose)'
+      - '\bboulder .{0,30}\b(hit|struck)'
+  collapse_mechanism_unstated:
+    patterns:
+      - '\b(high ?wall|hw|pit wall|wall|bank|slope|bench|face|stockpile|spoil|overburden|over burden)s? .{0,30}\b(gave way|failed|failure|slid|slide|collaps\w*|cav(ed|ing)|subsid\w*|subsud\w*)'
+      - '\b(collaps\w*|caving|failure|subsidence|subsudence) of (the )?(\w+ )?(high ?wall|wall|bank|slope|face)'
+      - '\bgeological failure\b'
+      - '\b(fall|slide) of (material|rock|earth|dirt|sand)'
+      - '\b(side|section|face|portion|part) of (the )?(\w+ )?(\w+ )?(pit|wall|high ?wall|bank|slope)\b.{0,30}\b(gave way|fell|came down|collaps\w*|cav\w*|slipped)'
+      - '\b(wall|sidewall|high ?wall|face)s? .{0,20}\b(fell in|caved in|slipped|came down|fell onto)'
+      - '\bcollapsing (high ?wall|wall|bank|slope|face)'
+      - '\b(hillside|slope|pit wall|bank|highwall) collapse'
+      - '\boverhanging material broke loose'
+
+triggers:
+  blasting:
+    patterns:
+      - '\bblast\w*'
+      - '\b(shot|shots)\b'
+      - '\bdetonat\w*'
+      - '\bexplosive\w*'
+      - '\bpost.?shot\b'
+    exclude:
+      - '\bshot ?crete\b'          # shotcrete is ground support, not a blast
+  water:
+    patterns:
+      - '\brain\w*'
+      - '\b(water|wet|saturat\w*|seep\w*|runoff|storm\w*)\b'
+      - '\b(freez\w*|thaw\w*|frost|ice|snow\w*)\b'
+    exclude:
+      - '\bwater truck\b'
+      - '\bwater (line|hose|pump)\b'
+  scaling:
+    patterns:
+      - '\bscal(e|ed|er|ing)\b'
+      - '\bbar(r(ed|ing))? down\b'
+      - '\bpry\w* (down|loose|off)'
+    use_activity_field: true          # also true if MSHA ACTIVITY mentions scaling

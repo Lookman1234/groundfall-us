@@ -1,0 +1,127 @@
+GroundFall-US QA report
+============================================================
+
+1. Row counts by stage
+   raw_accidents                               275,220
+   accidents_in_years                          275,220
+   duplicate_document_no_dropped                     0
+   ground_failure_records                       29,851
+   raw_mines                                    92,060
+   raw_prod_rows                               658,922
+   prod_rows_in_years                          658,922
+   rate_cells                                   17,243
+   rate_cells_with_hours                        17,216
+
+2. Join match rates (ground-failure records)
+   matched to Mines file          29,851  100.0%
+   mine x subunit x year hours    29,747  99.7%
+   contractor records                719  2.4%
+   GF records (non-contractor) falling in a cell with zero hours: 2
+
+3. Selection rule check: every MSHA CLASSIFICATION label, 2000-2026 [VERIFY]
+   labels selected as ground failure: ['FALL OF FACE/RIB/PILLAR/SIDE/HIGHWALL', 'FALL OF ROOF OR BACK']
+      79,090  HANDLING OF MATERIALS
+      46,930  SLIP OR FALL OF PERSON
+      28,960  HANDTOOLS (NONPOWERED)
+      28,050  MACHINERY
+  *   27,472  FALL OF ROOF OR BACK
+      20,188  POWERED HAULAGE
+       7,828  OTHER
+       6,085  DISORDERS (REPEATED TRAUMA)
+       5,408  HOISTING
+       3,787  STEPPING OR KNEELING ON OBJECT
+       2,512  STRIKING OR BUMPING
+  *    2,379  FALL OF FACE/RIB/PILLAR/SIDE/HIGHWALL
+       2,377  FIRE
+       2,305  DUST DISEASE OF LUNGS
+       2,106  NO VALUE FOUND
+       1,659  ELECTRICAL
+       1,421  IGNITION OR EXPLOSION OF GAS OR DUST
+       1,126  EXPLODING VESSELS UNDER PRESSURE
+       1,015  DISORDERS (PHYSICAL AGENTS)
+       1,001  FALLING/SLIDING/ROLLING MATERIALS
+         853  ENTRAPMENT
+         684  ALL OTHER OCCUPATIONAL ILLNESSES
+         617  NONPOWERED HAULAGE
+         528  INUNDATION
+         307  OCCUPATIONAL SKIN DISEASES
+         227  EXPLOSIVES AND BREAKING AGENTS
+         140  POISONING (TOXIC MATERIALS)
+          96  RESPIRATORY CONDITIONS (TOXIC AGENTS)
+          69  IMPOUNDMENT
+
+4. Range and sanity checks
+   unparseable accident dates: 0
+   negative hours or counts: 0
+   cells with >= 200,000 hours and GF rate > 5 per 200k h (injury rate): 4
+   records missing narrative: 1
+   records missing state: 0
+
+5. Ground-failure records by year and sector
+sector  coal  metal_nonmetal
+year                        
+2000    1814              95
+2001    1838              66
+2002    1574              70
+2003    1473              46
+2004    1631              59
+2005    1943             105
+2006    2005              94
+2007    2202             101
+2008    1945              85
+2009    1572              65
+2010    1592              95
+2011    1498              79
+2012     974              63
+2013     675              59
+2014     763              55
+2015     585              49
+2016     451              45
+2017     506              36
+2018     505              34
+2019     456              52
+2020     299              52
+2021     341              58
+2022     343              48
+2023     347              34
+2024     377              36
+2025     270              40
+2026     216              35
+
+5b. Severity by sector and mine type (no_injury_accident = reportable fall, nobody hurt)
+col_0                    coal/surface  coal/underground  metal_nonmetal/mill_plant  metal_nonmetal/surface  metal_nonmetal/underground
+severity                                                                                                                              
+fatal                              14               109                          0                      10                          29
+lost_time                          54              5327                          2                      39                         339
+no_injury_accident                 78             19643                          0                      12                         594
+other_or_unknown                    1                48                          0                       1                           9
+other_reportable_injury            14              2907                          1                      30                         590
+
+6. National rates per 200,000 hours, non-contractor, by sector and mine type (2000-2025 pooled)
+                            gf_injury  gf_fatal  gf_no_injury         hours  injury_rate_per_200k_h  fatal_rate_per_200k_h
+sector         mine_type                                                                                                  
+coal           mill_plant           0         0             0  3.951532e+08                  0.0000                 0.0000
+               office               0         0             0  1.392683e+08                  0.0000                 0.0000
+               shop_yard            0         0             0  2.025798e+07                  0.0000                 0.0000
+               surface             68        11            77  1.512641e+09                  0.0090                 0.0015
+               underground       7742       103         19483  1.867787e+09                  0.8290                 0.0110
+metal_nonmetal mill_plant           2         0             0  2.922771e+09                  0.0001                 0.0000
+               office               0         0             0  1.136386e+09                  0.0000                 0.0000
+               shop_yard            0         0             0  1.596899e+07                  0.0000                 0.0000
+               surface             66         8            12  4.158232e+09                  0.0032                 0.0004
+               underground        831        26           559  5.226867e+08                  0.3180                 0.0099
+
+7. Spot checks: look these up by hand (see docs/VERIFY_CHECKLIST.md)
+   [earliest record] doc 220000240052 | mine 1507475 Mine #1 (KY) | 01/01/2000 | FALL OF ROOF OR BACK | ACCIDENT ONLY
+      narrative: A ROOF FALL HAS OCCURRED IN THE #3 ENTRY ON THE 001-0 SECTION, 270' FROM THE ACTIVE FACE. THE ROOF FALL MEASURED 18' WIDE, 30' LONG, AND 5' THICK. VENTILATION N
+   [most recent record] doc 220262720011 | mine 4608759 NORTH EAGLE MINE (WV) | 09/23/2026 | FALL OF ROOF OR BACK | NO DYS AWY FRM WRK,NO RSTR ACT
+      narrative: Employee was backing the continuous miner out of 2 Left when a rock, approx. 72 in. long, 28 in. wide, and 7-9 in. thick, fell from the #2 Heading and struck EE
+   [a surface M/NM fatality] doc 220233200007 | mine 0900143 Wrens Plant (GA) | 11/13/2023 | FALL OF FACE/RIB/PILLAR/SIDE/HIGHWALL | FATALITY
+      narrative: Investigation is ongoing. *A miner died after being engulfed by a collapsing highwall.
+   [an underground coal roof fall] doc 220093440026 | mine 4601433 Marion County Mine (WV) | 12/04/2009 | FALL OF ROOF OR BACK | ACCIDENT ONLY
+      narrative: Roof fall at blk 79 st Lea 1-2 crosscut. No disruption of ventilation or travel. Fall area 15' wide approximately 25' long 7' above coal seam.
+   [a contractor record] doc 220111820052 | mine 1517741 Paradise #9 (KY) | 06/24/2011 | FALL OF ROOF OR BACK | DAYS AWAY FROM WORK ONLY
+      narrative: Injured was hanging cable when a rock fell between roof bolt and rib and struck him on the back and left leg.
+
+8. Flags
+   none

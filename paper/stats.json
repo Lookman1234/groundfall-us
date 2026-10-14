@@ -1,0 +1,82 @@
+{
+  "coding_mode_counts": {
+    "collapse_mechanism_unstated": 21,
+    "planar": 1,
+    "raveling": 8,
+    "rockfall": 41,
+    "rotational_slide": 2,
+    "toppling": 2,
+    "unspecified": 16,
+    "wedge": 1
+  },
+  "coding_n": 92,
+  "coding_rules_version": "0.2-draft",
+  "coding_trigger_counts": {
+    "blasting": 6,
+    "scaling": 6,
+    "water": 8
+  },
+  "coding_unspecified_pct": 17.4,
+  "fatal_coal_surface_2000_2025": 11,
+  "fatal_coal_underground_2000_2025": 103,
+  "fatal_metal_nonmetal_surface_2000_2025": 8,
+  "fatal_metal_nonmetal_underground_2000_2025": 26,
+  "injuries_coal_surface_2000_2025": 68,
+  "injuries_coal_underground_2000_2025": 7742,
+  "injuries_metal_nonmetal_surface_2000_2025": 66,
+  "injuries_metal_nonmetal_underground_2000_2025": 831,
+  "n_ground_failure_fatal": 162,
+  "n_ground_failure_injury": 9465,
+  "n_ground_failure_no_injury": 20327,
+  "n_ground_failure_records": 29851,
+  "qa_flags": [],
+  "qa_hours_match_pct": 99.65,
+  "qa_mine_match_pct": 100.0,
+  "qa_spot_checks": [
+    {
+      "date": "01/01/2000",
+      "document_no": "220000240052",
+      "mine_id": "1507475",
+      "state": "KY",
+      "why": "earliest record"
+    },
+    {
+      "date": "09/23/2026",
+      "document_no": "220262720011",
+      "mine_id": "4608759",
+      "state": "WV",
+      "why": "most recent record"
+    },
+    {
+      "date": "11/13/2023",
+      "document_no": "220233200007",
+      "mine_id": "0900143",
+      "state": "GA",
+      "why": "a surface M/NM fatality"
+    },
+    {
+      "date": "12/04/2009",
+      "document_no": "220093440026",
+      "mine_id": "4601433",
+      "state": "WV",
+      "why": "an underground coal roof fall"
+    },
+    {
+      "date": "06/24/2011",
+      "document_no": "220111820052",
+      "mine_id": "1517741",
+      "state": "KY",
+      "why": "a contractor record"
+    }
+  ],
+  "rate_coal_surface_2000": 0.0065,
+  "rate_coal_surface_2025": 0.0122,
+  "rate_coal_underground_2000": 1.1804,
+  "rate_coal_underground_2025": 0.3758,
+  "rate_metal_nonmetal_surface_2000": 0.0058,
+  "rate_metal_nonmetal_surface_2025": 0.0,
+  "rate_metal_nonmetal_underground_2000": 0.6172,
+  "rate_metal_nonmetal_underground_2025": 0.1263,
+  "year_first": 2000,
+  "year_last": 2026
+}

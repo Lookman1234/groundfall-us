@@ -1,0 +1,47 @@
+# GroundFall-US selection and grouping settings.
+# Plain-language note: this file holds the decisions about WHICH accidents count as
+# ground failures and HOW mines are grouped. Every item marked [VERIFY] is a decision
+# Lukman confirms before release. Changing a value here and re-running the pipeline
+# rebuilds every output.
+
+years: {first: 2000, last: 2026}
+partial_year: 2026            # flagged in outputs as incomplete
+
+# Ground failure = MSHA CLASSIFICATION (circumstance most directly contributing).
+# Matched case-insensitively against the CLASSIFICATION text label. [VERIFY]
+ground_failure_classification_patterns:
+  - "FALL OF FACE"            # Fall of face, rib, pillar, side, highwall
+  - "FALL OF ROOF"            # Fall of roof or back
+
+# Subunit groups (MSHA SUBUNIT_CD) used for "mine type" in the rate table.
+subunit_groups:
+  "01": underground
+  "02": surface            # surface operation at an underground mine
+  "03": surface            # strip, quarry, open pit
+  "04": surface            # auger (coal)
+  "05": surface            # culm bank or refuse pile (coal)
+  "06": surface            # dredge
+  "12": surface            # other surface (M/NM)
+  "17": shop_yard
+  "30": mill_plant
+  "99": office
+
+# Commodity groups from Mines.PRIMARY_CANVASS_CD
+canvass_groups:
+  "1": coal
+  "2": coal
+  "5": sand_gravel
+  "6": stone
+  "7": nonmetal
+  "8": metal
+
+# Rates: incidents per this many hours worked (MSHA convention).
+rate_base_hours: 200000
+# Contractor accidents (CONTRACTOR_ID present) are kept in the incident table but
+# excluded from rate numerators, because MinesProdYearly hours are mine-operator hours. [VERIFY]
+exclude_contractors_from_rates: true
+
+# Coding-layer scope: surface metal/nonmetal ground failures.
+coding_scope:
+  coal_metal_ind: "M"
+  subunit_codes: ["02", "03", "06", "12"]

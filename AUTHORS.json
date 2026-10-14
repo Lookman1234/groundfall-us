@@ -1,0 +1,26 @@
+{
+  "_comment": "Author block for GroundFall-US. Every document, citation file, Zenodo record, and commit reads from here. Order is author order. Roles use CRediT terms.",
+  "authors": [
+    {
+      "name": "Lukman Alabede",
+      "family": "Alabede",
+      "given": "Lukman",
+      "orcid": "0009-0008-7769-7455",
+      "email": "lukmanademola081@gmail.com",
+      "affiliation": "Independent Researcher, Safford, Arizona, USA",
+      "roles": ["Conceptualization", "Methodology", "Validation", "Data curation", "Writing - original draft"],
+      "corresponding": true
+    },
+    {
+      "name": "Kayode Komolafe",
+      "family": "Komolafe",
+      "given": "Kayode",
+      "orcid": "[insert ORCID or remove this line]",
+      "email": "[insert or leave blank]",
+      "affiliation": "Colorado School of Mines, Golden, Colorado, USA",
+      "roles": ["[insert roles: e.g. Validation, Writing - review and editing]"],
+      "corresponding": false
+    }
+  ],
+  "collaborators": []
+}
